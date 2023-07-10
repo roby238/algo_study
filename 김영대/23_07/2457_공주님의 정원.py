@@ -10,7 +10,7 @@ def solution():
             dates[i] = dates[i - 1] + 30
 
     read = sys.stdin.readline
-    [n] = map(int, read().rstrip().split())
+    n = int(read().rstrip())
 
     flower = []
     for _ in range(0, n):
@@ -21,7 +21,7 @@ def solution():
             s = dates[3] + 1
         if e > dates[11] + 30:
             e = dates[12] + 1
-        flower.append([s, e])
+        flower.append((s, e))
 
     flower.sort()
 
@@ -30,19 +30,16 @@ def solution():
     for i in range(0, n):
         if start >= flower[i][0] and end <= flower[i][1]:
             end = flower[i][1]
-        elif start < flower[i][0] \
-            and flower[i][0] <= end + 1 \
-            and end < flower[i][1]:
+        elif start < flower[i][0] and flower[i][0] <= end + 1 and end < flower[i][1]:
             start = end + 1
             end = flower[i][1]
             count += 1
 
         if end >= dates[11] + 30:
-            break;
+            print(count)
+            return
 
-    if end >= dates[11] + 30:
-        print(count)
-    else:
-        print(0)
+
+    print(0)
 
 solution()
