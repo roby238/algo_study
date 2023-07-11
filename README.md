@@ -14,7 +14,7 @@
     ```
 
 ## commit 규칙
-- commit 메세지: 난이도 / 걸린 시간 / 런타임
+- commit 메세지: 문제 번호 / 런타임
     ```
-  git commit -m "브5 / 1m / 240ms"
+  git commit -m "BOJ1004 / 240ms"
    ```
