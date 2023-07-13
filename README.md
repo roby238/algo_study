@@ -18,3 +18,6 @@
     ```
   git commit -m "BOJ1004 / 240ms"
    ```
+## runtime 기록
+[문서](https://docs.google.com/spreadsheets/d/1SL6zFjZGFwIXup3UldPbRrJR7rkVmgvHhvBRiUIwNrg/edit?usp=sharing
+) 에 runtime 기록해주세요
