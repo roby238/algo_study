@@ -13,6 +13,7 @@ def solution():
         optionOther.append("")
         answer.append(-1)
 
+
     for i in range(n):
         origin[i] = list(read().rstrip())
         optionHead[i] += origin[i][0]
