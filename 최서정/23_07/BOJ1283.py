@@ -1,7 +1,7 @@
 key, menu = [] , []
 N = int(input()) 
 end = 0
-
+ 
 def keyword(x):
   key.append(x)
   if x.isupper(): key.append(x.lower())
