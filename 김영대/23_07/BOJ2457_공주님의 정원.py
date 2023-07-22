@@ -30,7 +30,7 @@ def solution():
     for i in range(0, n):
         if start >= flower[i][0] and end <= flower[i][1]:
             end = flower[i][1]
-        elif start < flower[i][0] and flower[i][0] <= end + 1 and end < flower[i][1]:
+        elif start < flower[i][0] <= end + 1 and end < flower[i][1]:
             start = end + 1
             end = flower[i][1]
             count += 1

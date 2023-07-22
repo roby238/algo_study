@@ -8,7 +8,7 @@ def dfs(idx, presentCount, pos):
         pressCount = min(pressCount, presentCount)
         return
     if alpha[idx] != 0:
-        if (low[idx] <= pos and pos <= high[idx]):
+        if (low[idx] <= pos <= high[idx]):
             presentCount += 2 * (pos - low[idx]) + high[idx] - pos
             dfs(idx + 1, presentCount, high[idx])
             presentCount -= 2 * (pos - low[idx]) + high[idx] - pos
@@ -32,6 +32,7 @@ def solution():
         low.append(50)
         high.append(-1)
         alpha.append(0)
+
     for i in range(len(str)):
         low[ord(str[i]) - 97] = min(low[ord(str[i]) - 97], i)
         high[ord(str[i]) - 97] = max(high[ord(str[i]) - 97], i)
