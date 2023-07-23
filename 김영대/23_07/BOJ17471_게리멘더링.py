@@ -41,8 +41,7 @@ def solution():
                 a.append(i)
             else:
                 b.append(i)
-        if (not bfs(a, 'a')): return False
-        if (not bfs(b, 'b')): return False
+        if (not bfs(a, 'a') or not bfs(b, 'b')): return False
 
         return True
 
