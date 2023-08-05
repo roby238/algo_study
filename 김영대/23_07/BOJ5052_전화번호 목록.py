@@ -9,7 +9,11 @@ def solution():
         for i in range(n):
             tel = read().rstrip()
             book.append(tel)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/main
         bookSet = set(book)
         for target in bookSet:
             while(len(target) > 1):
@@ -20,7 +24,11 @@ def solution():
             if cFlag:
                 print("NO")
                 break
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/main
         if not cFlag:
             print("YES")
 solution()
