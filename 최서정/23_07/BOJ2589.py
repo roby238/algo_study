@@ -3,7 +3,7 @@ from collections import deque
 n,m = map(int, input().split())
 
 dia = []
-time = 0
+time = 0 
 
 for i in range(n):
   dia.append(list(input()))
