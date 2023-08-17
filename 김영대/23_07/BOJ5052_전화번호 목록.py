@@ -9,7 +9,7 @@ def solution():
         for i in range(n):
             tel = read().rstrip()
             book.append(tel)
-    
+
         bookSet = set(book)
         for target in bookSet:
             while(len(target) > 1):
@@ -20,7 +20,7 @@ def solution():
             if cFlag:
                 print("NO")
                 break
-    
+
         if not cFlag:
             print("YES")
 solution()
