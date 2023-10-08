@@ -29,7 +29,7 @@ def solution():
 
         if globalPaperCnt <= currPaperCnt: return
 
-        for s in range(5, 0, -1):
+        for s in range(1, 6):
             if x + s > 10 or y + s > 10 or papers[s] == 5: continue
 
             if isPossibleToAttach(y, x, s):
