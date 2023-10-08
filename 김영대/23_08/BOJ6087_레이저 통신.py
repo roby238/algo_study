@@ -1,21 +1,22 @@
 import sys
 from collections import deque
-read = sys.stdin.readline
 def solution():
+    read = sys.stdin.readline
     w, h = map(int, read().split())
     cObj = []
     m = []
+    inf = float("inf")
     for i in range(h):
         m.append(read())
         for j in range(w):
             if m[i][j] == 'C':
                 cObj.append([i, j, 5, 0])
-    v = [[[98765432 for _ in range(4)] for _ in range(w)] for _ in range(h)]
+    v = [[[inf for _ in range(4)] for _ in range(w)] for _ in range(h)]
     q = deque()
 
     def bfs():
-        dy = [1, -1, 0, 0]
-        dx = [0, 0, 1, -1]
+        dy = (1, -1, 0, 0)
+        dx = (0, 0, 1, -1)
         q.append(cObj[0])
         for i in range(4):
             v[cObj[0][0]][cObj[0][1]][i] = 0
@@ -32,7 +33,7 @@ def solution():
                 q.append([ny, nx, k, mirror])
 
     bfs()
-    ans = 98765432
+    ans = inf
     for i in range(4):
         ans = min(ans, v[cObj[1][0]][cObj[1][1]][i] - 1)
     print(ans)
