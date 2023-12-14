@@ -106,7 +106,3 @@ def solution_proc():
     print(point)
 
 solution_proc()
-
-
-
-
