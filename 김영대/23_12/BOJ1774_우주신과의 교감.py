@@ -1,6 +1,7 @@
 import sys
 import math
 
+
 def solution_proc():
     """
     Get combination of nodes and determinate the minimum distance.
@@ -67,6 +68,7 @@ def solution_proc():
         set_parent(node[0], node[1])
         # Get minimum distance and sum that.
         dist += node[2]
+
     # Print the minimum distance.
     print(format(dist, ".2f"))
 
