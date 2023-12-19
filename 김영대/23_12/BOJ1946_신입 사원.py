@@ -2,10 +2,21 @@ import sys
 
 
 def solution_prc():
+    """
+    Recruit volunteers without fails.
+    :return:
+    """
     read = sys.stdin.readline
     test_case = int(read())
 
     def cut_with_rank_proc(vol, pf, flag):
+        """
+        Sort by flag(0 or 1) and determine pass or fail by sorted points.
+        :param vol: volunteer list
+        :param pf: pass or fail info
+        :param flag: 0 or 1
+        :return:
+        """
         volunteer.sort(key=lambda x: (x[1 + flag]))
         tmp_rank = float("inf")
         for i in range(n):
@@ -15,6 +26,11 @@ def solution_prc():
                 pf[vol[i][0]] = 0
 
     def count_without_fail_proc(pf):
+        """
+        Count without fails.
+        :param pf: pass or fail info
+        :return: Count
+        """
         cnt = 0
         for i in range(n):
             if pf[i]:
