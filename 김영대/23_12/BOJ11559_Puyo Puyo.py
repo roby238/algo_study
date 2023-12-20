@@ -8,7 +8,7 @@ def solution_proc():
     field = [list(read().rstrip()) for _ in range(r)]
     dy, dx = (1, -1, 0, 0), (0, 0, 1, -1)
 
-    def swap(y1, x1, y2, x2):
+    def swap_block(y1, x1, y2, x2):
         tmp = field[y1][x1]
         field[y1][x1] = field[y2][x2]
         field[y2][x2] = tmp
@@ -20,7 +20,7 @@ def solution_proc():
                 while 1:
                     if tmp_i < 1: break
                     if field[tmp_i][j] == '.' and field[tmp_i - 1][j] != '.':
-                        swap(tmp_i, j, tmp_i - 1, j)
+                        swap_block(tmp_i, j, tmp_i - 1, j)
                     else: break
                     tmp_i -= 1
 
