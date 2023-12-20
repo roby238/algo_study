@@ -1,11 +1,11 @@
 import sys
 from collections import deque
 
+
 def solution_proc():
     read = sys.stdin.readline
     r, c = 12, 6
     field = [list(read().rstrip()) for _ in range(r)]
-    is_visited = [[0 for _ in range(6)] for _ in range(12)]
     dy, dx = (1, -1, 0, 0), (0, 0, 1, -1)
 
     def swap(y1, x1, y2, x2):
@@ -13,26 +13,25 @@ def solution_proc():
         field[y1][x1] = field[y2][x2]
         field[y2][x2] = tmp
 
-    def applying_gravity_proc():
+    def apply_gravity():
         for j in range(c):
-            for i in range(r - 1, -1, -1):
+            for i in range(1, r):
                 tmp_i = i
                 while 1:
-                    if field[tmp_i][j] != '.' and tmp_i < 11:
-                        if field[tmp_i + 1][j] == '.':
-                            swap(i, j, tmp_i + 1, j)
-                            tmp_i += 1
-                        else: break
+                    if tmp_i < 1: break
+                    if field[tmp_i][j] == '.' and field[tmp_i - 1][j] != '.':
+                        swap(tmp_i, j, tmp_i - 1, j)
                     else: break
+                    tmp_i -= 1
 
-    def pop_proc(groups):
+    def pop_groups(groups):
         for group in groups:
             for pos in group:
                 field[pos[0]][pos[1]] = '.'
 
         return 0
 
-    def bfs_proc(y, x, c):
+    def bfs(y, x, c, is_visited):
         queue = deque()
         queue.append((y, x))
         is_visited[y][x] = 1
@@ -51,30 +50,29 @@ def solution_proc():
 
         return group
 
-    def check_pop_proc():
+    def check_possible_to_pop():
+        is_visited = [[0 for _ in range(6)] for _ in range(12)]
         groups = list()
         for i in range(r):
             for j in range(c):
                 if field[i][j] == '.': continue
-                group = bfs_proc(i, j, field[i][j])
+                group = bfs(i, j, field[i][j], is_visited)
                 if len(group) >= 4: groups.append(group)
 
         return groups
 
-    def simulation_proc():
+    def simulation():
         turn_cnt = 0
         while 1:
-            groups = check_pop_proc()
+            groups = check_possible_to_pop()
             if not len(groups): break
-            pop_proc(groups)
-            applying_gravity_proc()
+            pop_groups(groups)
+            apply_gravity()
             turn_cnt += 1
-            for row in field:
-                print(row)
 
         return turn_cnt
 
-    print(simulation_proc())
+    print(simulation())
 
 
 solution_proc()
